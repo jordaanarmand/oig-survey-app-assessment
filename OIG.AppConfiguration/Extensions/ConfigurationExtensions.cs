@@ -5,6 +5,7 @@ namespace Oig.AppConfiguration.Extensions;
 
 public static class ConfigurationExtensions
 {
+    // TODO: Add Appconfiguration support
     public static string GetAzureAppConfigurationConnectionString(this IConfiguration configuration)
         => configuration.GetValue<string>(RootSettingsConstants.AzureAppConfigurationConnectionString);
 

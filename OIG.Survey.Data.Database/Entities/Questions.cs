@@ -10,7 +10,7 @@ public class Questions
 
     public virtual QuestionType QuestionType { get; set; }
 
-    public IEnumerable<long> QuestionOptionId { get; set; }
+    public List<long> QuestionOptionId { get; set; }
 
-    public virtual IEnumerable<QuestionOption> QuestionOption { get; set; }
+    public virtual List<QuestionOption> QuestionOption { get; set; }
 }

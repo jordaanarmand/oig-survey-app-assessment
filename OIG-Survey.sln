@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		.gitignore = .gitignore
 		README.md = README.md
 		NuGet.Config = NuGet.Config
+		.env = .env
+		docker-compose-database.yml = docker-compose-database.yml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OIG.Survey.Domain", "OIG.Survey.Domain\OIG.Survey.Domain.csproj", "{766457E3-9EAE-4731-A6CF-37F27ED74561}"
@@ -28,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OIG.AppConfiguration", "OIG.AppConfiguration\OIG.AppConfiguration.csproj", "{C4F54726-C2AF-4310-9CDB-E2ADC8CA6305}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OIG.Cors", "OIG.Cors\OIG.Cors.csproj", "{3889A372-DC22-42FE-BD08-D91EE9EE17E4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Iac", "Iac", "{AB86DB80-FFAC-42D7-AC05-F37F2FC5C24E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -64,5 +68,6 @@ Global
 		{612C9AF0-70B4-4F7B-8715-6FB31C46456B} = {52F19AA5-1D9D-42B4-8DE2-E44C7C4F72B8}
 		{C4F54726-C2AF-4310-9CDB-E2ADC8CA6305} = {E2D08D76-C435-496C-B4A8-0B9C521B78B7}
 		{3889A372-DC22-42FE-BD08-D91EE9EE17E4} = {E2D08D76-C435-496C-B4A8-0B9C521B78B7}
+		{AB86DB80-FFAC-42D7-AC05-F37F2FC5C24E} = {52F19AA5-1D9D-42B4-8DE2-E44C7C4F72B8}
 	EndGlobalSection
 EndGlobal
