@@ -1,0 +1,27 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.oig-navbar-text {
+  background-color: #1282d9;
+  color: #FFFFFF !important;
+}
+
+.oig-navbar-link:hover{
+  border-bottom: 4px solid #db9218;
+}
