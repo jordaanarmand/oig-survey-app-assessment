@@ -25,3 +25,9 @@ body {
 .oig-navbar-link:hover{
   border-bottom: 4px solid #db9218;
 }
+
+.oig-btn-action:hover{
+  background-color: #db9218;
+  border-color: #db9218; 
+  color: white;
+}

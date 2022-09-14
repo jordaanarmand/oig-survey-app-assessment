@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using OIG_Survey_App.Models;
-using OIG.Survey.Data.Enums;
 using OIG.Survey.Domain.Concerns.Questionnaires.Create;
+using OIG.Survey.Domain.Concerns.Questionnaires.Delete;
 using OIG.Survey.Domain.Concerns.Questionnaires.Get;
 
 namespace OIG_Survey_App.Controllers;
@@ -26,7 +25,7 @@ public class QuestionnaireController : Controller
         var query = new GetQuesionnairesQuery();
         var result = await _mediator.Send(query);
         var model = new QuestionnairesModel { Questionnaires = result };
-        
+
         return View(model);
     }
 
@@ -42,15 +41,21 @@ public class QuestionnaireController : Controller
     {
         if (ModelState.IsValid)
         {
-
-            var command = _mapper.Map<CreateQuestionnaireModel,CreateQuestionnaireCommand>(createQuestionnaireModel);
+            var command = _mapper.Map<CreateQuestionnaireModel, CreateQuestionnaireCommand>(createQuestionnaireModel);
             var result = await _mediator.Send(command);
-            
+
             return RedirectToAction("Index");
         }
-            // var command = new CreateQuestionnaireCommand(){}
-            return RedirectToAction("Index");
 
         return RedirectToAction("Index");
+    }
+
+    [HttpDelete]
+    public async Task<IActionResult> Delete(long id)
+    {
+        var command = new DeleteQuestionnaireCommand(id);
+        var result = await _mediator.Send(command);
+
+        return Ok(id);
     }
 }

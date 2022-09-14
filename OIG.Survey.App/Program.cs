@@ -40,6 +40,10 @@ app.UseAuthorization();
 app.MapControllerRoute(
     "default",
     "{controller=Home}/{action=Index}");
+app.MapControllerRoute(
+    "DeleteQuestionnaire",
+    "{controller=Questionnaire}/{action=Delete}/{id}");
+
 
 
 app.Run();
