@@ -157,6 +157,17 @@ namespace OIG.Survey.Data.Database.Migrations
                         principalColumn: "Id");
                 });
 
+            migrationBuilder.InsertData(
+                table: "QuestionnaireStatus",
+                columns: new[] { "Id", "Name" },
+                values: new object[,]
+                {
+                    { 1L, "Concept" },
+                    { 2L, "Scheduled" },
+                    { 3L, "Active" },
+                    { 4L, "Finished" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_QuestionnaireId",
                 table: "Answers",

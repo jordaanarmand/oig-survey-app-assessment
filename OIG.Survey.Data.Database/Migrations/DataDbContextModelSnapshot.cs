@@ -98,6 +98,28 @@ namespace OIG.Survey.Data.Database.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("QuestionnaireStatus");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Name = "Concept"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Name = "Scheduled"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Name = "Active"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            Name = "Finished"
+                        });
                 });
 
             modelBuilder.Entity("OIG.Survey.Data.Database.Entities.QuestionOption", b =>

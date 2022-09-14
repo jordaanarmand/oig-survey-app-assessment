@@ -5,14 +5,14 @@ namespace OIG.Survey.Data.Enums;
 public enum QuestionnaireStatus
 {
     [Description("Concept")]
-    Concept = 0,
+    Concept = 1,
     
     [Description("Scheduled")]
-    Scheduled = 1,
+    Scheduled = 2,
     
     [Description("Active")]
-    Active = 2,
+    Active = 3,
     
     [Description("Finished")]
-    Finished = 3
+    Finished = 4
 }
