@@ -21,7 +21,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Concerns" />
+      <ProjectReference Include="..\OIG.Survey.Data.Database\OIG.Survey.Data.Database.csproj" />
+      <ProjectReference Include="..\OIG.Survey.Data.Enums\OIG.Survey.Data.Enums.csproj" />
     </ItemGroup>
 
 </Project>

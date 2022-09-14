@@ -13,12 +13,12 @@ public static class ServiceCollectionExtensions
 
         serviceCollection.AddMediatR(typeof(ServiceCollectionExtensions));
 
-        serviceCollection.AddValidationSupport();
+        // serviceCollection.AddValidationSupport();
     }
 
-    private static void AddValidationSupport(this IServiceCollection serviceCollection)
-    {
-        serviceCollection.AddValidatorsFromAssembly(typeof(ServiceCollectionExtensions).Assembly);
-        serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
-    }
+    // private static void AddValidationSupport(this IServiceCollection serviceCollection)
+    // {
+    //     serviceCollection.AddValidatorsFromAssembly(typeof(ServiceCollectionExtensions).Assembly);
+    //     serviceCollection.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehavior<,>));
+    // }
 }

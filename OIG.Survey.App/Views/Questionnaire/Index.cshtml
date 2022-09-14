@@ -1,0 +1,35 @@
+﻿@using OIG.Survey.Data.Enums
+@model QuestionnairesModel
+
+<h1 class="display-4">Manage Questionnaire</h1>
+
+@* @Html.PartialAsync("_CreatePartial"); *@
+
+@{
+    await Html.RenderPartialAsync("_CreatePartial", new CreateQuestionnaireModel());
+}
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Status</th>
+        <th>Start Date</th>
+        <th>End Date</th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var questionnaire in Model.Questionnaires)
+    {
+        <tr>
+            <td>@questionnaire.Id</td>
+            <td>@questionnaire.Name</td>
+            <td>@Enum.GetName(typeof(QuestionnaireStatus), questionnaire.QuestionnaireStatusId)</td>
+            <td>@questionnaire.StartDate.ToLocalTime()</td>
+            <td>@questionnaire.EndDate.ToLocalTime()</td>
+        </tr>
+    }
+    </tbody>
+</table>

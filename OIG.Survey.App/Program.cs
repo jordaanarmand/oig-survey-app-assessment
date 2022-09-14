@@ -1,6 +1,7 @@
+using FluentValidation;
+using FluentValidation.AspNetCore;
+using OIG_Survey_App.Extensions;
 using Oig.AppConfiguration.Extensions;
-using Oig.Cors;
-using Oig.Cors.Extensions;
 using OIG.Survey.Data.Database.Extensions;
 using OIG.Survey.Domain.Extensions;
 
@@ -9,8 +10,14 @@ var configuration = builder.Configuration;
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services
+    .AddValidatorsFromAssembly(typeof(Program).Assembly)
+    .AddFluentValidationAutoValidation()
+    .AddFluentValidationClientsideAdapters()
+    ;
 
-builder.Services.AddCorsPolicySupport(configuration.GetSettings<CorsSettings>());
+builder.Services.AddFrontEnd();
+// builder.Services.AddCorsPolicySupport(configuration.GetSettings<CorsSettings>());
 builder.Services.AddDatabase(configuration.GetSettings<DataSettings>());
 builder.Services.AddDomain();
 
@@ -31,7 +38,8 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    "default",
+    "{controller=Home}/{action=Index}");
+
 
 app.Run();
