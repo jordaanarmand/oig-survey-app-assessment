@@ -19,7 +19,7 @@ public class CreateQuestionnaireModelValidator : AbstractValidator<CreateQuestio
         RuleFor(_ => _.EndDate)
             .NotNull()
             .GreaterThan(_ => _.StartDate).WithMessage("End date can not be less than start date")
-            .GreaterThan(_ => DateTime.Now).WithMessage("End date cna no be less than current date time")
+            .GreaterThan(_ => DateTime.Now).WithMessage("End date can no be less than current date time")
             ;
     }
 }

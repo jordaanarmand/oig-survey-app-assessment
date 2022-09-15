@@ -3,6 +3,7 @@ using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using OIG_Survey_App.Models;
 using OIG_Survey_App.ModelValidation;
+using OIG.Survey.Domain.Concerns.Questionnaires.Close;
 using OIG.Survey.Domain.Concerns.Questionnaires.Create;
 using OIG.Survey.Domain.Concerns.Questionnaires.Delete;
 using OIG.Survey.Domain.Concerns.Questionnaires.Edit;
@@ -103,6 +104,15 @@ public class QuestionnaireController : Controller
     public async Task<IActionResult> Delete(long id)
     {
         var command = new DeleteQuestionnaireCommand(id);
+        var result = await _mediator.Send(command);
+
+        return Ok(id);
+    }
+    
+    [HttpPut]
+    public async Task<IActionResult> Close(long id)
+    {
+        var command = new CloseQuestionnaireCommand(id);
         var result = await _mediator.Send(command);
 
         return Ok(id);

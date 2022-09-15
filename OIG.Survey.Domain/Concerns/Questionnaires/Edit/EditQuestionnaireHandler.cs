@@ -25,8 +25,8 @@ public class EditQuestionnaireHandler : IRequestHandler<EditQuestionnaireCommand
         if (entity is null) throw new NullReferenceException("A questionnaire with this id could not be found");
 
         entity.Name = request.Name;
-        entity.StartDate = request.StartDate;
-        entity.EndDate = request.EndDate;
+        entity.StartDate = request.StartDate.ToUniversalTime();
+        entity.EndDate = request.EndDate.ToUniversalTime();
         entity.QuestionnaireStatusId = request.StatusId;
 
         await _dataDbContext.SaveChangesAsync(cancellationToken);

@@ -19,8 +19,11 @@ public class GetQuestionnaires : IRequestHandler<GetQuesionnairesQuery, IQueryab
 
     public Task<IQueryable<QuestionnaireDto>> Handle(GetQuesionnairesQuery request, CancellationToken cancellationToken)
     {
-        return Task.FromResult(_dataDbContext.Set<Data.Database.Entities.Questionnaire>()
+        return Task.FromResult(
+            _dataDbContext.Set<Data.Database.Entities.Questionnaire>()
             .AsNoTracking()
+            .OrderBy(_ => _.StartDate)
+            .ThenBy(_ => _.EndDate)
             .ProjectTo<QuestionnaireDto>(_mapper.ConfigurationProvider));
     }
 }
