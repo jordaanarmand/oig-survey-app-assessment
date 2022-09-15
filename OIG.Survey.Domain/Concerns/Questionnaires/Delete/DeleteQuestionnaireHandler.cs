@@ -4,7 +4,6 @@ using MediatR;
 using Microsoft.EntityFrameworkCore;
 using OIG.Survey.Data.Database;
 using OIG.Survey.Data.Database.Entities;
-using QuestionnaireStatus = OIG.Survey.Data.Enums.QuestionnaireStatus;
 
 namespace OIG.Survey.Domain.Concerns.Questionnaires.Delete;
 
@@ -28,7 +27,7 @@ public class DeleteQuestionnaireHandler : IRequestHandler<DeleteQuestionnaireCom
 
         if (entity is null) throw new NullReferenceException("A questionnaire with this id could not be found");
 
-        if (entity.QuestionnaireStatusId != (long)QuestionnaireStatus.Concept)
+        if (entity.QuestionnaireStatusId != (long)Data.Enums.QuestionnaireStatus.Concept)
             throw new InvalidEnumArgumentException("Can not delete a questionnaire when the status is not Concept.");
 
         _dataDbContext.Remove(entity);

@@ -1,3 +1,53 @@
-﻿<div class="text-center">
-    <h1 class="display-4">Edit</h1>
-</div>
+﻿@model EditFullQuestionnaireModel
+
+<h3 class="display-6">Edit</h3>
+
+<form method="post" 
+      asp-action="EditQuestionnaire" 
+      asp-controller="Questionnaire"
+      class="mt-3">
+    <div class="modal-body">
+        <div class="mb-3 visually-hidden">
+            <label for="Name" class="form-label">Questionnaire Name</label>
+            <input type="text" class="form-control" id="Id" aria-describedby="Id" asp-for="QuestionnaireModel.Id">
+            <input type="text" class="form-control" id="StatusModels" aria-describedby="StatusModels" asp-for="StatusModels">
+        </div>
+        <div class="mb-3 visually-hidden">
+            <label for="Name" class="form-label">Questionnaire Name</label>
+            <input type="text" class="form-control" id="Id" aria-describedby="Id" asp-for="QuestionnaireModel.Id">
+        </div>
+        <div class="mb-3">
+            <label for="Name" class="form-label">Questionnaire Name</label>
+            <input type="text" class="form-control" id="Name" aria-describedby="Name" asp-for="QuestionnaireModel.Name">
+            <span asp-validation-for="QuestionnaireModel.Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="StartDate" class="form-label">Start Date</label>
+            <input type="datetime-local" class="form-control" id="StartDate" aria-describedby="StartDate" asp-for="QuestionnaireModel.StartDate">
+            <span asp-validation-for="QuestionnaireModel.StartDate" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label for="EndDate" class="form-label">End Date</label>
+            <input type="datetime-local" class="form-control" id="EndDate" aria-describedby="EndDate" asp-for="QuestionnaireModel.EndDate">
+            <span asp-validation-for="QuestionnaireModel.EndDate" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label for="Status" class="form-label">Status</label>
+            @Html.DropDownListFor(_ => _.QuestionnaireModel.StatusId,
+                new SelectList(Model.StatusModels,
+                    "Id",
+                    "Status",
+                    Model.QuestionnaireModel.StatusId),
+                new
+                {
+                    @class = "form-control form-select",
+
+                })
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button asp-controller="Questionnaire" asp-action="Index" formmethod="get" type="submit" class="btn btn-light">Cancel</button>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </div>
+</form>

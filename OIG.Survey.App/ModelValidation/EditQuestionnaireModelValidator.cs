@@ -3,9 +3,9 @@ using OIG_Survey_App.Models;
 
 namespace OIG_Survey_App.ModelValidation;
 
-public class CreateQuestionnaireModelValidator : AbstractValidator<CreateQuestionnaireModel>
+public class EditQuestionnaireModelValidator : AbstractValidator<EditQuestionnaireModel>
 {
-    public CreateQuestionnaireModelValidator()
+    public EditQuestionnaireModelValidator()
     {
         RuleFor(_ => _.Name)
             .NotEmpty();

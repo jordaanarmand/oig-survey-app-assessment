@@ -15,7 +15,7 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        return View("~/Views/Dashboard/Index.cshtml");
+        return RedirectToAction("Index", "Questionnaire");
     }
     
 
